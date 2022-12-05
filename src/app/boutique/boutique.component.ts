@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { ApiService } from '../api.service';
 import { PokemonModel } from '../models/pokemon.model';
 import { PokemonComponent } from '../pokemon/pokemon/pokemon.component';
 
@@ -13,16 +14,33 @@ import { PokemonComponent } from '../pokemon/pokemon/pokemon.component';
   templateUrl: './boutique.component.html',
   styleUrls: ['./boutique.component.css'],
 })
-export class BoutiqueComponent implements OnInit, AfterViewInit {
-  constructor(private pokemons: PokemonComponent) {}
+export class BoutiqueComponent {
+  pokemons: PokemonModel[] = [];
 
-  @ViewChild(PokemonComponent) pokemon;
+  min: number = 1;
+  max: number = 200;
+  random = Math.floor(Math.random() * (this.max - this.min)) + this.min;
 
-  open = false;
-  @Input() boosters: Array<PokemonComponent> | undefined;
-  ngOnInit() {}
+  constructor(private pokemonService: ApiService) {}
 
-  ngAfterViewInit() {
-    this.boosters.push(this.pokemon.getPokemon());
+  getPokemon(i: number) {
+    while (i < 10) {
+      this.pokemonService.get(this.random).subscribe((data) => {
+        console.log(data);
+        let pokemon = {
+          name: data['name'],
+          poke_id: data['poke_id'],
+          stats: data['stats'],
+          image: data['image'],
+          type: data['type'],
+        };
+        this.pokemons.push(pokemon);
+      });
+      i++;
+    }
   }
+
+  // getPokemonImageUrl(): string {
+  // return `https://raw.githubusercontent.com/PokeAPI///sprites/master/sprites/pokemon/${this.pokemon.poke_id}.//png `;
+  // }
 }
