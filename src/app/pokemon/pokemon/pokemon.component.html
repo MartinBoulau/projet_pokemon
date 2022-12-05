@@ -1,0 +1,11 @@
+<button type="button" class="btn btn-secondary">vendre</button>
+<p>{{ pokemon.name }}</p>
+<p>{{ pokemon.type }}</p>
+<figure>
+  <img [src]="getPokemonImageUrl()" />
+</figure>
+<p>PV: {{ pokemon.stats.hp }}</p>
+<p>Défense: {{ pokemon.stats.defense }}</p>
+<p>Attaque: {{ pokemon.stats.attack }}</p>
+<p>Vitesse: {{ pokemon.stats.speed }}</p>
+
