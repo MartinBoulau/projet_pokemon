@@ -1,11 +1,19 @@
-<p>home works!</p>
-
-<img
-  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Z4xBquzuILwyL_7DFau8gwHGFpd4VjrAvIqUSuhtzG_cI4UPKhrzLog0k30aSH1Q-Qk&usqp=CAU"
-  alt="pikachu"
-/>
-<h1>Bienvenue</h1>
-<p>Login Name</p>
-<input type="text" placeholder="Name" />
-<button routerLink="/deck">GO!</button>
-<router-outlet></router-outlet>
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col-lg-6" style="padding-left: 100px;">
+      <img
+        src="https://lostin70s.com/lpwebfront/static/pokeapp/assets/pikachu.jpg"
+        alt="pikachu"
+      />
+    </div>
+    <div class="col-lg-6" style="padding-right: 100px;">
+      <h1>Bienvenue</h1>
+      <p>Login Name</p>
+      <input class="form-control" type="text" placeholder="Name" />
+      <button type="button" class="btn btn-primary" routerLink="/deck">
+        GO!
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

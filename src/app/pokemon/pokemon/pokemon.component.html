@@ -1,11 +1,26 @@
 <button type="button" class="btn btn-secondary">vendre</button>
-<p>{{ pokemon.name }}</p>
-<p>{{ pokemon.type }}</p>
+<p class="text-center">
+  <strong>{{ pokemon.name }}</strong>
+</p>
+<p class="text-center">{{ pokemon.type }}</p>
 <figure>
-  <img [src]="getPokemonImageUrl()" />
+  <img class="rounded mx-auto d-block" [src]="getPokemonImageUrl()" />
 </figure>
-<p>PV: {{ pokemon.stats.hp }}</p>
-<p>Défense: {{ pokemon.stats.defense }}</p>
-<p>Attaque: {{ pokemon.stats.attack }}</p>
-<p>Vitesse: {{ pokemon.stats.speed }}</p>
-
+<table class="table">
+  <tr>
+    <td>PV:</td>
+    <td>{{ pokemon.stats.hp }}</td>
+  </tr>
+  <tr>
+    <td>Défense:</td>
+    <td>{{ pokemon.stats.defense }}</td>
+  </tr>
+  <tr>
+    <td>Attaque:</td>
+    <td>{{ pokemon.stats.attack }}</td>
+  </tr>
+  <tr>
+    <td>Vitesse:</td>
+    <td>{{ pokemon.stats.speed }}</td>
+  </tr>
+</table>
